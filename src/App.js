@@ -1,4 +1,5 @@
 import "./App.css";
+// import { Basket } from "./components/busket/Basket";
 import { Header } from "./components/header/Header";
 import { MealSummary } from "./components/meal-summary/MealSummary.jsx";
 import { Meals } from "./components/meals/Meals";
@@ -10,7 +11,8 @@ function App() {
       <div className="App">
         <MealSummary />
       </div>
-        <Meals />
+      <Meals />
+      {/* <Basket /> */}
     </div>
   );
 }

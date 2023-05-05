@@ -1,4 +1,7 @@
 import { v4 } from "uuid";
+export const backdropElement = document.getElementById("backdrop");
+export const modalElement = document.getElementById("modal");
+
 
 export const Constants = [
   {

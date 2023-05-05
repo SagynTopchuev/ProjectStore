@@ -1,55 +1,61 @@
 import React from "react";
 import styled from "styled-components";
 
+import {
+  getBackgroundColor,
+  getBorder,
+  getBorderRadius,
+  getColor,
+} from "./helpers";
+
 export const Button = ({
+  variant = "contained",
+  borderRadius = "rounded",
+  icon,
+  onClick,
   children,
-  width,
-  height,
-  borderRadius,
-  bgColor,
-  fontSize,
-  fontWeight,
-  hover,
-  active,
+  ...props
 }) => {
   return (
-    <ButtonAdd
-      bgColor={bgColor}
-      width={width}
-      height={height}
+    <MyButton
       borderRadius={borderRadius}
-      fontSize={fontSize}
-      fontWeight={fontWeight}
-      hover={hover}
-      active={active}
+      variant={variant}
+      onClick={onClick}
+      {...props}
     >
-      {children}
-    </ButtonAdd>
+      {icon} {children}
+    </MyButton>
   );
 };
-const ButtonAdd = styled.button`
-  width: ${(el) => el.width};
-  height: ${(el) => el.height};
-  border-radius: ${(el) => el.borderRadius};
-  background-color: ${(el) => el.bgColor};
-  font-size: ${(el) => el.fontSize};
-  font-weight: ${(el) => el.fontWeight};
+const MyButton = styled.button`
+  background: ${getBackgroundColor};
+  border-radius: ${getBorderRadius};
+  color: ${getColor};
+  border: ${getBorder};
 
-  color: #ffffff;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 10px 24px;
+  cursor: pointer;
   display: flex;
   align-items: center;
-  justify-content: center;
-  border: none;
-  &:hover {
-    background-color: ${(el) => el.hover};
+  gap: 12px;
+  :hover {
+    background: #7e2a0a;
+    color: #fff;
+    svg {
+      fill: #fff;
+    }
   }
-  &:active{
-    background-color:${(el) => el.active} ;
+  :active {
+    background: #993108;
   }
-  &::before {
-    content: "+";
-    margin-right: 12.7px;
-    font-weight: 100;
-    font-size: 20px;
+  :disabled {
+    background: #cac6c4;
+    color: #fff;
+    border: none;
+  }
+  svg {
+    fill: ${getColor};
   }
 `;

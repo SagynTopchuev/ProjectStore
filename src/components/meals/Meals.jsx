@@ -3,6 +3,7 @@ import { Constants } from "./Constants";
 import styled from "styled-components";
 import { Input } from "../UI/Input";
 import { Button } from "../UI/Button";
+import { ReactComponent as PlusIcon } from "../../assets/icons/plusIcon.svg";
 
 export const Meals = () => {
   return (
@@ -17,18 +18,7 @@ export const Meals = () => {
             </DivEl>
             <DivUI>
               <Input labelTitle="Amount" />
-              <Button
-                fontWeight="700"
-                fontSize="14px"
-                bgColor="#8A2B06"
-                width="99px"
-                height="41px"
-                borderRadius="20px"
-                hover="#7E2A0A"
-                active="#993108"
-              >
-                Add
-              </Button>
+              <Button icon={<PlusIcon />}>Add</Button>
             </DivUI>
           </DivParentMap>
         ))}
@@ -50,7 +40,7 @@ const Container = styled.section`
   width: 1039px;
   height: 564px;
   box-sizing: border-box;
-  padding-top: 24.5px;
+  padding-top: 40px;
   background: #ffffff;
   border-radius: 16px;
 `;
@@ -58,9 +48,12 @@ const DivParentMap = styled.div`
   width: 959px;
   padding-top: 24px;
   padding-bottom: 20px;
-  border-bottom: 1px solid #d6d6d6;
+  border-bottom: 2px solid #d6d6d6;
   display: flex;
   justify-content: space-between;
+  :last-child {
+    border: none;
+  }
 `;
 const DivEl = styled.div`
   width: 184px;

@@ -1,12 +1,14 @@
 import React from "react";
+import { useContext } from "react";
 import styled from "styled-components";
 import { ReactComponent as BasketIcon } from "../../assets/icons/Vector.svg";
 export const OrderBusket = ({ children }) => {
+  // const context = useContext(cartContext);
   return (
-    <Button>
+    <Button className="bump">
       <BasketIcon />
       <OrderBasketTitle>{children}</OrderBasketTitle>
-      <OrderBasketCount>7</OrderBasketCount>
+      <OrderBasketCount></OrderBasketCount>
     </Button>
   );
 };
@@ -19,6 +21,26 @@ const Button = styled.button`
   justify-content: center;
   align-items: center;
   border: none;
+
+  /* animation: bump 300ms ease-out;
+
+  @keyframes bump {
+    0% {
+      transform: scale(1);
+    }
+    10% {
+      transform: scale(0.9);
+    }
+    30% {
+      transform: scale(1.1);
+    }
+    50% {
+      transform: scale(1.15);
+    }
+    100% {
+      transform: scale(1);
+    }
+  } */
 
   &:hover {
     background-color: #4d1601;
